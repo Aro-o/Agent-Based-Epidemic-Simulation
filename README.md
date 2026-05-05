@@ -20,9 +20,9 @@ The project was developed as part of the **MSc Artificial Intelligence & Robotic
 - **Realistic disease progression** — agents move through susceptible → infected → recovered/dead states
 - **Antibody system** — recovered agents develop temporary immunity that fades over time
 - **Three intervention strategies:**
-  - 🏠 **Travel Restrictions** — agents stay within their own region
-  - 📏 **Social Distancing** — agents maintain minimum distance from others
-  - 🔵 **Self-Isolation** — infected agents stop moving once symptoms appear
+  - **Travel Restrictions** — agents stay within their own region
+  - **Social Distancing** — agents maintain minimum distance from others
+  - **Self-Isolation** — infected agents stop moving once symptoms appear
 - **Real-time statistics** tracking infection rates, deaths, and immunity levels per population
 - **Configurable parameters** including infection rate, survival rate, immunity duration, and illness duration
 
@@ -92,10 +92,14 @@ Self-isolating agents:
 
 ## Key Findings
 
-- **Self-isolation** was found to be the most effective single intervention for reducing spread
-- The **magenta population** (larger, denser) experienced higher mortality rates
-- With travel restrictions enabled, both populations stabilised over time as the virus gradually died out
-- Social distancing had a measurable but comparatively lesser effect given the infection radius and population density
+The model demonstrates how different intervention strategies lead to significantly different outcomes:
+
+- **Self-isolation** was identified as the most effective single measure — once symptomatic agents stop moving, transmission chains break significantly
+- **Stay local (travel restrictions)** was found to be the least effective measure on its own, as the virus spreads rapidly within each dense region regardless
+- The **magenta population** (4x larger at 1000 agents) consistently experienced higher total deaths due to density-driven transmission
+- The **undetected period** (`undetected_period`) has the greatest impact on self-isolation effectiveness — the longer a disease goes undetected, the less effective isolation becomes
+- With travel restrictions enabled, the virus tends to die out within each population over time as herd exposure reduces the susceptible pool
+- Changing parameters mid-simulation (e.g. toggling travel restrictions or social distancing) visibly alters the infection and mortality curves in real time
 
 ---
 
